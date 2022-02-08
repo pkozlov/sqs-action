@@ -5,10 +5,13 @@ async function run() {
     try {
         const sqsUrl = core.getInput('sqs-url', { required: false });
         const message = core.getInput('message', { required: true });
+        const messageGroupId = core.getInput('message-group-id', { required: false });
         const params = {
             QueueUrl: sqsUrl,
             MessageBody: message,
         };
+        if (messageGroupId) params['MessageGroupId'] = messageGroupId;
+        
         
         const endpoint = core.getInput('endpoint', { required: false });
         const region = core.getInput('region', { required: false });
