@@ -10,6 +10,9 @@ inputs:
   message:
     description: 'message boty to send'
     required: true
+  endpoint:
+    description: 'sqs endpoint'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
