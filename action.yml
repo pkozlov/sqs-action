@@ -1,11 +1,11 @@
-name: 'AWS SQS'
-description: 'Send message to AWS SQS'
+name: 'Yandex message queue / AWS SQS'
+description: 'Send message to Yandex message queue or AWS SQS'
 branding:
   icon: 'message-square'
   color: 'orange'
 inputs:
   sqs-url:
-    description: 'AWS SQS url to send message'
+    description: 'SQS url to send message'
     required: true
   message:
     description: 'message boty to send'
@@ -15,6 +15,9 @@ inputs:
     required: false
   region:
     description: 'sqs region'
+    required: false
+  message-group-id:
+    description: 'sqs MessageGroupId'
     required: false
 runs:
   using: 'node12'
