@@ -9,8 +9,14 @@ async function run() {
             QueueUrl: sqsUrl,
             MessageBody: message,
         };
+        
+        const endpoint = core.getInput('endpoint', { required: false });
+        const region = core.getInput('region', { required: false });
+        const sqsParams = {};
+        if (endpoint) sqsParams['endpoint'] = endpoint;
+        if (region) sqsParams['region'] = region;
 
-        const sqs = new aws.SQS();
+        const sqs = new aws.SQS(sqsParams);
         sqs.sendMessage(params, (err, resp) => {
             if (err) {
                 throw err;
