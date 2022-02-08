@@ -12,7 +12,10 @@ inputs:
     required: true
   endpoint:
     description: 'sqs endpoint'
-    required: true
+    required: false
+  region:
+    description: 'sqs region'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
